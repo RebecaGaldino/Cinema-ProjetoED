@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <conio.h>
+int op;
+void MenuPrincipal(){
+    printf("    **********************************\n");
+    printf("    *                                *\n");
+    printf("    *          1 - Comprar           *\n");
+    printf("    *                                *\n");
+    printf("    *          2 - Cancelar          *\n");
+    printf("    *                                *\n");
+    printf("    *          3 - Pesquisar         *\n");
+    printf("    *                                *\n");
+    printf("    *           4 - Sair             *\n");
+    printf("    *                                *\n");
+    printf("    **********************************\n");
+    scanf("%d", &op);
+    system("cls");
+    switch(op){
+    case 1:
+        Comprar();
+        break;
+    case 2:
+        Cancelar();
+        break;
+    case 3:
+        Pesquisar();
+        break;
+    default:
+        Sair();
+    }
+}
+void Comprar(){
+    printf("    **********************************\n");
+    printf("    *                                *\n");
+    printf("    *          1 - Filme 2D          *\n");
+    printf("    *                                *\n");
+    printf("    *          2 - Filme 3D          *\n");
+    printf("    *                                *\n");
+    printf("    *           3 - Voltar           *\n");
+    printf("    *                                *\n");
+    printf("    **********************************\n");
+    scanf("%d", &op);
+    system("cls");
+    switch(op){
+    case 1:
+        Filme2D();
+        break;
+    case 2:
+        Filme3D();
+        break;
+    default:
+        MenuPrincipal();
+    }
+}
+void Filme2D(){
+    printf("Oi!\n");
+}
+void Filme3D(){
+    printf("Oi!\n");
+}
+void Cancelar(){
+    printf("Oi!\n");
+}
+void Pesquisar(){
+    printf("Oi!\n");
+}
+void Sair(){
+    printf("Obrigada Pela Preferencia!\n");
+}
+
+int main(){
+    MenuPrincipal();
+}
