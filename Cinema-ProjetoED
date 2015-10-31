@@ -121,7 +121,7 @@ void comprarIngresso(int ing){
 void efetuarCompra(){
 	int tipoIng;
 	printf("**********************************************\n");
-	printf("                                			\n");
+	printf("                                         	\n");
 	printf("   Insira o tipo de ingresso (4 - voltar):  \n");
 	printf("                                    		\n");
 	printf("                  1. Meia                   \n");
@@ -167,43 +167,99 @@ int menuCliente(){
 	printf("                                    		\n");
 	printf("                   4.Sair.                  \n");
 	printf("                                    		 \n");
-    printf("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+        printf("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
 	scanf("%d",&resposta);
 	system("cls");
 	return resposta;
 }
 
+/* Função que retorna o total arrecadado por sessão. */
+void totalArrecadado(){
+    int total = (MeiasOcupadas * meia) + (InteirasOcupadas * inteira);
+    printf("----------------------------------------------\n");
+    printf("     Valor arrecadado total: R$ %.2f \n", total);
+    printf("----------------------------------------------\n");
+}
+
+/*Função que separa por sessão os valores. */
+void arrecadacao(){
+    printf("--->  Foram compradas:                                    \n");
+    printf("   # %d entradas inteiras, resultando em: R$ %.2f no total.\n", InteirasOcupadas, (InteirasOcupadas * inteira));
+    printf("   # %d meia entradas, resultando em: R$ %.2f no total.     \n", MeiasOcupadas, (MeiasOcupadas * meia));
+    printf("   # %d entradas especiais, gratuitas.                       \n", EspeciaisOcupadas);
+    system("cls");
+}
+
+/* Menu principal do funcionário. Retorna a seleção que, no main, será direcionada para os métodos de veirificação do
+ * total arrecadado e de início de uma nova sessão. */
+int menuFunc(){
+    int resposta;
+	printf("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+	printf("                 BEM VINDO(A)!              \n");
+	printf("        Digite o que deseja fazer:          \n");
+	printf("                                    		\n");
+	printf("           1. Ver total arrecadado.         \n");
+	printf("                                  		    \n");
+	printf("          2. Ver valores individuais.       \n");
+	printf("                                    		\n");
+	printf("           3. Iniciar nova sessao.          \n");
+	printf("                                    		\n");
+	printf("                   4.Sair.                  \n");
+	printf("                                    		 \n");
+        printf("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+	scanf("%d",&resposta);
+	system("cls");
+	return resposta;
+}
 /* Main do programa. Separa as funções entre pertencentes ao cliente e ao funcionário. */
+//Falha na repetição, ele aborta assim que conclui alguma das operações.                               TO DO
 int main(){
-    char user;
-    int op;
     iniciarSessao();
-    printf("Quem esta gerenciando? (C - cliente / F - fucionario) \n");
+    int op;
+    char user;
+    printf("Quem esta gerenciando? (C - cliente / F - fucionario)  [S - Sair] \n");
     scanf("%c",&user);
     if(toupper(user) == 'C'){
-        system("cls");
-        while ((op = menuCliente()) != 4){
-            switch(op){
-                case 1:
-                    efetuarCompra();
-                    break;
-                case 2:
-                    cancelarCompra();
-                    break;
-                case 3:
-                    pesquisarCadeira();
-                    break;
-                case 4:
-                    printf("Agradecemos o uso dos nossos servicos! Volte sempre. ");
-                    break;
-                default:
-                    printf("Caracter invalido! Por favor, digite um numero das escolhas apresentadas. \n");
-            }
-      }
-    } else {
-        //HERE: chamadas para:MENU FUNCIONARIO (to do)
-        //METODOS DE PESQUISA (to do)
-        //METODOS DE INICIO DE UMA NOVA SESSAO (to do)
-    }
-    return 0;
+            system("cls");
+            while ((op = menuCliente()) != 4){
+                switch(op){
+                    case 1:
+                        efetuarCompra();
+                        break;
+                    case 2:
+                        cancelarCompra();
+                        break;
+                    case 3:
+                        pesquisarCadeira();
+                        break;
+                    case 4:
+                        printf("Agradecemos o uso dos nossos servicos! Volte sempre. ");
+                        break;
+                    default:
+                        printf("Caracter invalido! Por favor, digite um numero das escolhas apresentadas. \n");
+                }
+          }
+    } else if(toupper(user) == 'F') {
+                    system("cls");
+                    while ((op = menuFunc()) != 4){
+                        switch(op){
+                        case 1:
+                            totalArrecadado();
+                            break;
+                        case 2:
+                            arrecadacao();
+                            break;
+                        case 3:
+                            iniciarSessao();
+                            break;
+                        case 4:
+                            break;
+                        default:
+                            printf("Caracter invalido! Por favor, digite um numero das escolhas apresentadas. \n");
+                        }
+                    }
+    } else if(toupper(user) == 'S')
+        return 0;
+    else
+        printf("Digite uma opcao valida!");
 }
