@@ -187,7 +187,6 @@ void arrecadacao(){
     printf("   # %d entradas inteiras, resultando em: R$ %.2f no total.\n", InteirasOcupadas, (InteirasOcupadas * inteira));
     printf("   # %d meia entradas, resultando em: R$ %.2f no total.     \n", MeiasOcupadas, (MeiasOcupadas * meia));
     printf("   # %d entradas especiais, gratuitas.                       \n", EspeciaisOcupadas);
-    system("cls");
 }
 
 /* Menu principal do funcionário. Retorna a seleção que, no main, será direcionada para os métodos de veirificação do
