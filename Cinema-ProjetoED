@@ -121,7 +121,7 @@ void comprarIngresso(int ing){
 void efetuarCompra(){
 	int tipoIng;
 	printf("**********************************************\n");
-	printf("                                         	\n");
+	printf("                                			\n");
 	printf("   Insira o tipo de ingresso (4 - voltar):  \n");
 	printf("                                    		\n");
 	printf("                  1. Meia                   \n");
@@ -167,7 +167,7 @@ int menuCliente(){
 	printf("                                    		\n");
 	printf("                   4.Sair.                  \n");
 	printf("                                    		 \n");
-        printf("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+    printf("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
 	scanf("%d",&resposta);
 	system("cls");
 	return resposta;
@@ -205,7 +205,7 @@ int menuFunc(){
 	printf("                                    		\n");
 	printf("                   4.Sair.                  \n");
 	printf("                                    		 \n");
-        printf("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+    printf("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
 	scanf("%d",&resposta);
 	system("cls");
 	return resposta;
@@ -215,50 +215,50 @@ int menuFunc(){
 int main(){
     iniciarSessao();
     int op;
-    char user;
-    printf("Quem esta gerenciando? (C - cliente / F - fucionario)  [S - Sair] \n");
-    scanf("%c",&user);
-    if(toupper(user) == 'C'){
-            system("cls");
-            while ((op = menuCliente()) != 4){
-                switch(op){
-                    case 1:
-                        efetuarCompra();
-                        break;
-                    case 2:
-                        cancelarCompra();
-                        break;
-                    case 3:
-                        pesquisarCadeira();
-                        break;
-                    case 4:
-                        printf("Agradecemos o uso dos nossos servicos! Volte sempre. ");
-                        break;
-                    default:
-                        printf("Caracter invalido! Por favor, digite um numero das escolhas apresentadas. \n");
-                }
-          }
-    } else if(toupper(user) == 'F') {
+    char user = 'A';
+    while (toupper(user) !=  'S'){
+            printf("Quem esta gerenciando? (C - cliente / F - fucionario)  [S - Sair] \n");
+            scanf("%c",&user);
+            if(toupper(user) == 'C'){
                     system("cls");
-                    while ((op = menuFunc()) != 4){
+                    while ((op = menuCliente()) != 4){
                         switch(op){
-                        case 1:
-                            totalArrecadado();
-                            break;
-                        case 2:
-                            arrecadacao();
-                            break;
-                        case 3:
-                            iniciarSessao();
-                            break;
-                        case 4:
-                            break;
-                        default:
-                            printf("Caracter invalido! Por favor, digite um numero das escolhas apresentadas. \n");
+                            case 1:
+                                efetuarCompra();
+                                break;
+                            case 2:
+                                cancelarCompra();
+                                break;
+                            case 3:
+                                pesquisarCadeira();
+                                break;
+                            case 4:
+                                printf("Agradecemos o uso dos nossos servicos! Volte sempre. ");
+                                break;
+                            default:
+                                printf("Caracter invalido! Por favor, digite um numero das escolhas apresentadas. \n");
                         }
-                    }
-    } else if(toupper(user) == 'S')
-        return 0;
-    else
-        printf("Digite uma opcao valida!");
+                  }
+            } else if(toupper(user) == 'F') {
+                            system("cls");
+                            while ((op = menuFunc()) != 4){
+                                switch(op){
+                                case 1:
+                                    totalArrecadado();
+                                    break;
+                                case 2:
+                                    arrecadacao();
+                                    break;
+                                case 3:
+                                    iniciarSessao();
+                                    break;
+                                case 4:
+                                    break;
+                                default:
+                                    printf("Caracter invalido! Por favor, digite um numero das escolhas apresentadas. \n");
+                                }
+                            }
+            }
+        }
+
 }
