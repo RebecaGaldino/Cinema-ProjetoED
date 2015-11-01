@@ -141,10 +141,10 @@ void efetuarCompra(){
 /* Cancela a compra, inserindo o valor inicial na posição dela. */
 void cancelarCompra(){
 	printf(" _______________________________________________________\n");
-	printf("*                                           		    *\n");
-	printf("*  Insira a cadeira e a fileria do ingresso comprado:   *\n");
-	printf("*                                           			*\n");
-	printf("*_______________________________________________________*\n");
+	printf("*                                                       *\n");
+	printf("*   Insira a cadeira e a fileria do ingresso comprado:  *\n");
+	printf("*                                                       *\n");
+	printf("* ______________________________________________________*\n");
 	scanf("%d %d",&cadeira,&fileira);
 	sessao[cadeira][fileira] = 0;
 	system("cls");
