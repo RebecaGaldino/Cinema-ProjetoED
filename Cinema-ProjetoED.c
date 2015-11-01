@@ -20,9 +20,9 @@ void iniciarSessao(){
 
 /* Verifica se a cadeira está ou não disponível para a compra. */
 int pesquisarCadeira(){
-    printf("	---------------------------------------                    \n");
-	printf("    | Insira o numero da cadeira e da fila |                   \n");
-	printf("    ---------------------------------------                    \n");
+    	printf("    --------------------------------------- \n");
+	printf("    | Insira o numero da cadeira e da fila |\n");
+	printf("    --------------------------------------- \n");
 	scanf("%d %d",&cadeira,&fileira);
 	if (sessao[cadeira][fileira] != 0){
 		system("cls");
@@ -42,7 +42,7 @@ int pesquisarCadeira(){
  */
 int ocuparCadeira(int tipo){
     if (pesquisarCadeira() == 1){
-        printf("Impossivel efetuar compra. Por favor, escolha outra cadeira.");
+        printf("Impossivel efetuar compra. Por favor, escolha outra cadeira.\n");
         return 0;
     }
     else{
@@ -233,10 +233,10 @@ int main(){
                                 pesquisarCadeira();
                                 break;
                             case 4:
-                                printf("Agradecemos o uso dos nossos servicos! Volte sempre. ");
+                                printf("Agradecemos o uso dos nossos servicos! Volte sempre.\n");
                                 break;
                             default:
-                                printf("Caracter invalido! Por favor, digite um numero das escolhas apresentadas. \n");
+                                printf("Caracter invalido! Por favor, digite um numero das escolhas apresentadas.\n");
                         }
                   }
             } else if(toupper(user) == 'F') {
@@ -255,7 +255,7 @@ int main(){
                                 case 4:
                                     break;
                                 default:
-                                    printf("Caracter invalido! Por favor, digite um numero das escolhas apresentadas. \n");
+                                    printf("Caracter invalido! Por favor, digite um numero das escolhas apresentadas.\n");
                                 }
                             }
             }
