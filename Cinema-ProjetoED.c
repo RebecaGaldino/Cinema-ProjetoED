@@ -96,7 +96,7 @@ void comprarIngresso(int ing){
                 break;
 			}
 		case 3:
-			printf("Valor - Entrada especial(idosos e eficientes) : %.2f - gratuidade\n",especial);
+			printf("Valor - Entrada especial(idosos e eficientes): %.2f - gratuidade\n",especial);
 			printf("Efetuar compra? (S - Sim, N - Nao)\n");
 			fflush(stdin);
 			scanf("%c",&r);
