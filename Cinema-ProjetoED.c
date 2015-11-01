@@ -175,7 +175,7 @@ int menuCliente(){
 
 /* Função que retorna o total arrecadado por sessão. */
 void totalArrecadado(){
-    int total = (MeiasOcupadas * meia) + (InteirasOcupadas * inteira);
+    double total = (MeiasOcupadas * meia) + (InteirasOcupadas * inteira);
     printf("----------------------------------------------\n");
     printf("     Valor arrecadado total: R$ %.2f \n", total);
     printf("----------------------------------------------\n");
